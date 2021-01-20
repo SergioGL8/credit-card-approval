@@ -18,7 +18,7 @@ def credit():
     return render_template("credit.html")
 
 @app.route("/prediction", methods=["POST"])
-def predict():
+def predict(request):
 
     init_features = [float(x) for x in request.form.values()]
     final_features = [np.array(init_features)]
