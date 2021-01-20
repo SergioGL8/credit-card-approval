@@ -1,5 +1,36 @@
 {% extends "base.html" %}
-{% block title %}Credit Quiz{% endblock %}
+{% block title %}Credit Prediction{% endblock %}
 {% block content %}
-<p>hello</p>
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="login">
+                <h1> Predict Credit</h1>
+
+                <form action="{{ url_for('predict')}}"method="post">
+
+                    <input type="text" name="qone" placeholder="XXXXXXXXXXXXXXX" required="required" />
+                    <br>
+                    <br>
+                    <input type="text" name="qtwo" placeholder="XXXXXXXXXXXXXXX" required="required" />
+                    <br>
+                    <br>
+                    <input type="text" name="qthree" placeholder="XXXXXXXXXXXXXXX" required="required" />
+                    <br>
+                    <br>
+                    <input type="text" name="qfour" placeholder="XXXXXXXXXXXXXXX" required="required" />
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                </form>
+
+                <br>
+                <br>
+
+                {{ prediction_text }}
+
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
