@@ -6,10 +6,12 @@ import keras
 from keras.models import load_model
 
 from tensorflow.keras.models import load_model
+from sklearn.externals import joblib
 
 #Flask Setup
 app = Flask(__name__)
-model = load_model("models/Normal_Neural_Network_V2.h5")
+model = load_model("models/Normal_Neural_Network_V3.h5")
+scaler = joblib.load("models/scaler.save") 
 
 #Flask Routes
 
@@ -30,7 +32,9 @@ def prediction():
     if request.method == 'GET':
         return f"The URL /prediction was accessed directly. Try going to '/quiz' to submit form"
     if request.method == 'POST':
+        
         form_data = request.form
+        
         quiz_results = {'CODE_GENDER': [form_data['code_gender']], 'FLAG_OWN_CAR': [form_data['flag_own_car']], 
         'FLAG_OWN_REALTY': [form_data['flag_own_realty']], 'CNT_CHILDREN': [form_data['cnt_children']], 
         'AMT_INCOME_TOTAL': [form_data['amt_income_total']], 'NAME_INCOME_TYPE': [form_data['name_income_type']], 
@@ -45,7 +49,9 @@ def prediction():
         for column in quiz_df:
             quiz_df[column] = quiz_df[column].astype(int)
 
-        prediction = model.predict(quiz_df)
+        quiz_transformed = scaler.transform(quiz_df)
+
+        prediction = np.rint(model.predict(quiz_transformed))
 
         return render_template('prediction.html', form_data = form_data, prediction_text = 'Predicted Class: {}'.format(prediction))
 
