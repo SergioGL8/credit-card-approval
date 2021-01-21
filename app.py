@@ -31,7 +31,25 @@ def prediction():
         return f"The URL /prediction was accessed directly. Try going to '/quiz' to submit form"
     if request.method == 'POST':
         form_data = request.form
+        quiz_results = {'CODE_GENDER': [form_data['code_gender']], 'FLAG_OWN_CAR': [form_data['flag_own_car']], 
+        'FLAG_OWN_REALTY': [form_data['flag_own_realty']], 'CNT_CHILDREN': [form_data['cnt_children']], 
+        'AMT_INCOME_TOTAL': [form_data['amt_income_total']], 'NAME_INCOME_TYPE': [form_data['name_income_type']], 
+        'NAME_EDUCATION_TYPE': [form_data['name_education_type']], 'NAME_FAMILY_STATUS': [form_data['name_family_status']],
+        'NAME_HOUSING_TYPE': [form_data['name_housing_type']], 'DAYS_BIRTH': [form_data['days_birth']], 
+        'DAYS_EMPLOYED': [form_data['days_employed']], 'FLAG_MOBIL': [form_data['flag_mobil']], 
+        'FLAG_WORK_PHONE': [form_data['flag_work_phone']], 'FLAG_PHONE': [form_data['flag_phone']], 
+        'FLAG_EMAIL': [form_data['flag_email']], 'CNT_FAM_MEMBERS': [form_data['cnt_fam_members']]}
 
+        quiz_df = pd.DataFrame.from_dict(quiz_results)
+
+        for column in quiz_df:
+            quiz_df[column] = quiz_df[column].astype(int)
+
+        prediction = model.predict(quiz_df)
+
+        return render_template('prediction.html', form_data = form_data, prediction_text = 'Predicted Class: {}'.format(prediction))
+
+"""
         keys = ['CODE_GENDER', 'FLAG_OWN_CAR', 'FLAG_OWN_REALTY', 'CNT_CHILDREN', 'AMT_INCOME_TOTAL', 'NAME_INCOME_TYPE', 
         'NAME_EDUCATION_TYPE', 'NAME_FAMILY_STATUS', 'NAME_HOUSING_TYPE', 'DAYS_BIRTH', 'DAYS_EMPLOYED', 'FLAG_MOBIL', 
         'FLAG_WORK_PHONE', 'FLAG_PHONE', 'FLAG_EMAIL', 'OCCUPATION_TYPE', 'CNT_FAM_MEMBERS']
@@ -40,20 +58,7 @@ def prediction():
         form_data['amt_income_total'], form_data['name_income_type'], form_data['name_education_type'], form_data['name_family_status'], form_data['name_housing_type'],
         form_data['days_birth'], form_data['days_employed'], form_data['flag_mobil'], form_data['flag_work_phone'], form_data['flag_phone'],
         form_data['flag_email'], form_data['occupation_type'], form_data['cnt_fam_members']]
-
-        quiz_results = {'CODE_GENDER': [form_data['code_gender']], 'FLAG_OWN_CAR': [form_data['flag_own_car']], 
-        'FLAG_OWN_REALTY': [form_data['flag_own_realty']], 'CNT_CHILDREN': [form_data['cnt_children']], 
-        'AMT_INCOME_TOTAL': [form_data['amt_income_total']], 'NAME_INCOME_TYPE': [form_data['name_income_type']], 
-        'NAME_EDUCATION_TYPE': [form_data['name_education_type']], 'NAME_FAMILY_STATUS': [form_data['name_family_status']],
-        'NAME_HOUSING_TYPE': [form_data['name_housing_type']], 'DAYS_BIRTH': [form_data['days_birth']], 
-        'DAYS_EMPLOYED': [form_data['days_employed']], 'FLAG_MOBIL': [form_data['flag_mobil']], 
-        'FLAG_WORK_PHONE': [form_data['flag_work_phone']], 'FLAG_PHONE': [form_data['flag_phone']], 
-        'FLAG_EMAIL': [form_data['flag_email']], 'OCCUPATION_TYPE': [form_data['occupation_type']], 
-        'CNT_FAM_MEMBERS': [form_data['cnt_fam_members']]}
-
-        quiz_df = pd.DataFrame.from_dict(quiz_results)
-
-        return render_template('prediction.html', form_data = form_data)
+"""
 
 @app.route('/contact')
 def contact():
