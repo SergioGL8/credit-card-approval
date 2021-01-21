@@ -42,7 +42,15 @@
       <form action="{{ url_for('prediction')}}" method="POST">
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="name"></p>
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Last name" required name="last_name"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Gender" required name="code_gender"></p>
+        <!--<p><input class="w3-input w3-padding-16" type="text" placeholder="Gender" required name="code_gender"></p>-->
+
+
+        <select class="w3-input w3-padding-16" type="text" placeholder="Gender" required name="code_gender" list="browsers" id="cars">
+          <option>- Gender -</option>
+          <option value="1">Male</option>
+          <option value="0">Female</option>
+        </select>
+
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you own a car?" required name="flag_own_car"></p>
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you own a real estate property?" required name="flag_own_realty"></p>
         <p><input class="w3-input w3-padding-16" type="text" placeholder="How many childen do you have?" required name="cnt_children"></p>
@@ -57,7 +65,6 @@
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you have a work phone?" required name="flag_work_phone"></p>
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you have a home phone?" required name="flag_phone"></p>
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you have an email" required name="flag_email"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Occupation" required name="occupation_type"></p>
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Family size" required name="cnt_fam_members"></p>
         <p>
           <button class="w3-button w3-light-grey w3-padding-large" type="submit">
