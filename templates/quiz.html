@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  <img src="{{url_for('static', filename='card.png')}}" style="width:100%">
+  <!-- Icon Bar -->
+  <a href="{{ url_for('home')}}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>HOME</p>
+  </a>
+  </a>
+  <a href="{{ url_for('quiz')}}" class="w3-bar-item w3-button w3-padding-large w3-black">
+  <i class="fa fa-edit w3-xxlarge"></i>
+  <p>QUIZ</p>
+  </a>
+ <a href="{{ url_for('about')}}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-bar-chart w3-xxlarge"></i>
+    <p>ABOUT</p>
+ <a href="{{ url_for('contact')}}" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-group w3-xxlarge"></i>
+   <p>CONTACT</p>
+ </a>
+</nav>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+    <h1 class="w3-jumbo">Financial Quiz</h1>
+    <p>Quiz here.</p>
+  </header>
+
+    <!-- Contact Section -->
+    <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+      
+      <p>Let's get in touch. Send me a message:</p>
+  
+      <form action="{{ url_for('prediction')}}" method="POST">
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="name"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Last name" required name="last_name"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Gender" required name="code_gender"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you own a car?" required name="flag_own_car"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you own a real estate property?" required name="flag_own_realty"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="How many childen do you have?" required name="cnt_children"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Annual income" required name="amt_income_total"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Select an income category" required name="name_income_type"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Educational level" required name="name_education_type"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Marital status" required name="name_family_status"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Way of living" required name="name_housing_type"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Birthday" required name="days_birth"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Start date of employment" required name="days_employed"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you have a mobile phone?" required name="flag_mobil"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you have a work phone?" required name="flag_work_phone"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you have a home phone?" required name="flag_phone"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you have an email" required name="flag_email"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Occupation" required name="occupation_type"></p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="Family size" required name="cnt_fam_members"></p>
+        <p>
+          <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+            <i class="fa fa-paper-plane"></i> PREDICT MY FINANCIAL FITNESS
+          </button>
+        </p>
+      </form>
+    <!-- End Contact Section -->
+    </div>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+
+{% endblock %}

@@ -4,44 +4,45 @@
 <head>
 
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %} {% endblock %}</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{{ url_for('home')}}">
-            Credit Predictor
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('home')}}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('credit')}}">Credit Quiz</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+
+<body class="w3-black">
+
+  <!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="{{ url_for('home')}}" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+    <a href="{{ url_for('quiz')}}" class="w3-bar-item w3-button" style="width:25% !important">QUIZ</a>
+    <a href="{{ url_for('about')}}" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+    <a href="{{ url_for('contact')}}" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+  </div>
+</div>
 
     <div class = "container fluid">
         {% block content %}{% endblock %}
     </div>
 
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   {% block apps %}{% endblock %}
-<footer class="page-footer font-small">
+
+<!-- Footer -->
+<footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
   <hr>
-  <div class="footer-copyright text-center py-3">
-    Made by: Jimi Jenneskens, Rodrigo Lozano, Alfredo Ocegueda, Sergio Guarneros and Diego Cravioto © Copyright 2021
+  <center><a href="https://github.com/SergioGL8/credit-card-approval" class="fa fa-github w3-hover-opacity" style="font-size: 70px;"></a></center>
+  <p class='footer'>© Copyright 2021</p>
+  <div class="links">
+  <p><a href="https://www.linkedin.com/in/jimi-jenneskens/" class='w3-hover-opacity'>Jimi Jenneskens</a> | <a href="https://www.linkedin.com/in/rodrigo-lozano-lozano-60a7b6139/" class='w3-hover-opacity'>Rodrigo Lozano</a> | <a href="https://www.linkedin.com/in/alfredo-ocegueda-0109071b2/" class='w3-hover-opacity'>Alfredo Ocegueda | <a href="https://www.linkedin.com/in/sergio-guarneros-luna-1990/" class='w3-hover-opacity'>Sergio Guarneros</a> | <a href="https://www.linkedin.com/in/diego-cravioto-fern%C3%A1ndez-979087158/" class='w3-hover-opacity'>Diego Cravioto</a></p>
   </div>
+<!-- End footer -->
 </footer>
+
 </body>
 </html>
