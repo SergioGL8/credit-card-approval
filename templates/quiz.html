@@ -42,29 +42,102 @@
       <form action="{{ url_for('prediction')}}" method="POST">
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="name"></p>
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Last name" required name="last_name"></p>
-        <!--<p><input class="w3-input w3-padding-16" type="text" placeholder="Gender" required name="code_gender"></p>-->
-
-
+    
         <select class="w3-input w3-padding-16" type="text" placeholder="Gender" required name="code_gender" list="browsers" id="cars">
           <option>- Gender -</option>
           <option value="1">Male</option>
           <option value="0">Female</option>
         </select>
-
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you own a car?" required name="flag_own_car"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you own a real estate property?" required name="flag_own_realty"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="How many childen do you have?" required name="cnt_children"></p>
+        <p>
+        <select class="w3-input w3-padding-16" type="text" placeholder="Do you own a car?" required name="flag_own_car" list="browsers" id="cars">
+          <option>- Own car? -</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <p>
+        <select class="w3-input w3-padding-16" type="text" placeholder="Do you own a real estate property?" required name="flag_own_realty" list="browsers" id="cars">
+          <option>- Own property? -</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <p>
+        <p><input class="w3-input w3-padding-16" type="text" placeholder="How many children do you have?" required name="cnt_children"></p>
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Annual income" required name="amt_income_total"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Select an income category" required name="name_income_type"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Educational level" required name="name_education_type"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Marital status" required name="name_family_status"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Way of living" required name="name_housing_type"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Birthday" required name="days_birth"></p>
+        <p>
+        <select class="w3-input w3-padding-16" type="text" placeholder="Select an income category" required name="name_income_type" list="browsers" id="cars">
+          <option>- Income type -</option>
+          <option value="0">Commercial associate</option>
+          <option value="1">Pensioner</option>
+          <option value="2">State servant</option>
+          <option value="3">Student</option>
+          <option value="4">Working</option>
+        </select>
+        <p>
+        <select class="w3-input w3-padding-16" type="text" placeholder="Educational level" required name="name_education_type" list="browsers" id="cars">
+          <option>- Educational level -</option>
+          <option value="0">Academic Degree</option>
+          <option value="1">Higher Education</option>
+          <option value="2">Iincomplete Higher</option>
+          <option value="3">Lower Secondary</option>
+          <option value="4">Secondary /  Secondary Special</option>
+        </select>
+        <p>
+        <select class="w3-input w3-padding-16" type="text" placeholder="Marital status" required name="name_family_status" list="browsers" id="cars">
+          <option>- Family Status -</option>
+          <option value="0">Civil marriage</option>
+          <option value="1">Married</option>
+          <option value="2">Separated</option>
+          <option value="3">Singel / not married</option>
+          <option value="4">Widow</option>
+        </select>
+        <p>
+        <select class="w3-input w3-padding-16" type="text" placeholder="Way of living" required name="name_housing_type" list="browsers" id="cars">
+          <option>- Housing Type -</option>
+          <option value="0">Co-op apartment</option>
+          <option value="1">House / apartment</option>
+          <option value="2">Municipal apartment</option>
+          <option value="3">Office apartment</option>
+          <option value="4">Rented apartment</option>
+          <option value="4">With parents</option>
+        </select>
+        <p>
+        
+        
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday">
+        
+        <p>
+        
+        <label for="birthday">Employment Date:</label>
+        <input type="date" id="employment" name="employment">
+        
+
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Start date of employment" required name="days_employed"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you have a mobile phone?" required name="flag_mobil"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you have a work phone?" required name="flag_work_phone"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you have a home phone?" required name="flag_phone"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Do you have an email" required name="flag_email"></p>
+        <p>
+        <select class="w3-input w3-padding-16" type="text" placeholder="Do you have a mobile phone?" required name="flag_mobil" list="browsers" id="cars">
+          <option>- Mobile phone -</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <p>
+        <select class="w3-input w3-padding-16" type="text" placeholder="Do you have a work phone?" required name="flag_work_phone" list="browsers" id="cars">
+          <option>- Work phone -</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <p>
+        <select class="w3-input w3-padding-16" type="text" placeholder="Do you have a home phone?" required name="flag_phone" list="browsers" id="cars">
+          <option>- Home phone -</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <p>
+        <select class="w3-input w3-padding-16" type="text" placeholder="Do you have an email" required name="flag_email" list="browsers" id="cars">
+          <option>- Do you have an email? -</option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <p>
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Family size" required name="cnt_fam_members"></p>
         <p>
           <button class="w3-button w3-light-grey w3-padding-large" type="submit">
