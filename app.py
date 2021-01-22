@@ -1,4 +1,5 @@
 #Imports
+from datetime import datetime
 import numpy as np
 import pandas as pd
 from flask import Flask, render_template, redirect, jsonify, request
@@ -34,13 +35,19 @@ def prediction():
     if request.method == 'POST':
         
         form_data = request.form
+
+        date_time_str = '2018-06-29'
+        date_time_obj = datetime.datetime.strptime(date_time_str, '%Y-%m-%d')
+
+        days_birth = actual_date - form_data['birthday']
+        days_employed = actual_date - form_data['employment']
         
         quiz_results = {'CODE_GENDER': [form_data['code_gender']], 'FLAG_OWN_CAR': [form_data['flag_own_car']], 
         'FLAG_OWN_REALTY': [form_data['flag_own_realty']], 'CNT_CHILDREN': [form_data['cnt_children']], 
         'AMT_INCOME_TOTAL': [form_data['amt_income_total']], 'NAME_INCOME_TYPE': [form_data['name_income_type']], 
         'NAME_EDUCATION_TYPE': [form_data['name_education_type']], 'NAME_FAMILY_STATUS': [form_data['name_family_status']],
-        'NAME_HOUSING_TYPE': [form_data['name_housing_type']], 'DAYS_BIRTH': [form_data['days_birth']], 
-        'DAYS_EMPLOYED': [form_data['days_employed']], 'FLAG_MOBIL': [form_data['flag_mobil']], 
+        'NAME_HOUSING_TYPE': [form_data['name_housing_type']], 'DAYS_BIRTH':  [days_birth], 
+        'DAYS_EMPLOYED': [days_employed], 'FLAG_MOBIL': [form_data['flag_mobil']], 
         'FLAG_WORK_PHONE': [form_data['flag_work_phone']], 'FLAG_PHONE': [form_data['flag_phone']], 
         'FLAG_EMAIL': [form_data['flag_email']], 'CNT_FAM_MEMBERS': [form_data['cnt_fam_members']]}
 
