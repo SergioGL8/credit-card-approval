@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Home{% endblock %}
+{% block title %}About{% endblock %}
 {% block content %}
 
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
@@ -30,12 +30,20 @@
   
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo">About Page.</h1>
-    <p>Some description here.</p>
+    <h1 class="w3-jumbo">About</h1>
   </header>
+  <p class="text-justify">This web application was created to help both people, companies and banks alike.</p>
+  <p class="text-justify">By creating, training and deploying a Machine Learning model, this web app is able to predict how much risk an individual represents when applying for a credit based on different parameters such as:
+  <ul>
+    <li>Gender.</li>
+    <li>Annual Income.</li>
+    <li>Number of days someone has been employed.</li>
+  </ul>
+  Depending on the submitted information, the model will yield a determined outcome.
+  </p>
+  <p class="text-justify">After the evaluation of these parameters, the user will know if they represent a Low Risk, Medium Risk or a High Risk when submitting an application.</p>
+  <p class="text-justify">To know your risk level, please head on over to the Quiz page to begin.</p>
 
 <!-- END PAGE CONTENT -->
 </div>
-
-
 {% endblock %}
