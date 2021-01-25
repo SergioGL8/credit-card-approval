@@ -3,5 +3,4 @@ numpy
 pandas
 flask
 keras
-tensorflow.keras
 joblib
