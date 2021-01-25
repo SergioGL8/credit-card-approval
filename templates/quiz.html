@@ -30,14 +30,13 @@
   
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo">Financial Quiz</h1>
-    <p>Quiz here.</p>
+    <h1 class="w3-jumbo">Credit Quiz</h1>
   </header>
 
     <!-- Contact Section -->
     <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
       
-      <p>Let's get in touch. Send me a message:</p>
+      <p>Please type in your answers.</p>
   
       <form action="{{ url_for('prediction')}}" method="POST">
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="name"></p>
@@ -87,7 +86,7 @@
           <option value="0">Civil marriage</option>
           <option value="1">Married</option>
           <option value="2">Separated</option>
-          <option value="3">Singel / not married</option>
+          <option value="3">Single / not married</option>
           <option value="4">Widow</option>
         </select>
         <p>
@@ -98,7 +97,7 @@
           <option value="2">Municipal apartment</option>
           <option value="3">Office apartment</option>
           <option value="4">Rented apartment</option>
-          <option value="4">With parents</option>
+          <option value="5">With parents</option>
         </select>
         <p>
         
@@ -111,8 +110,6 @@
         <label for="birthday">Employment Date:</label>
         <input type="date" id="employment" name="employment">
         
-
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Start date of employment" required name="days_employed"></p>
         <p>
         <select class="w3-input w3-padding-16" type="text" placeholder="Do you have a mobile phone?" required name="flag_mobil" list="browsers" id="cars">
           <option>- Mobile phone -</option>
@@ -140,8 +137,22 @@
         <p>
         <p><input class="w3-input w3-padding-16" type="text" placeholder="Family size" required name="cnt_fam_members"></p>
         <p>
+          <!-- <p>
+            <select class="w3-input w3-padding-16" type="text" required name="status">
+              <option>- In average, how long does it take you to pay off your credit card? -</option>
+              <option value="7">I have not made any purchase recently </option>
+              <option value="6">I paid them off immediately</option>
+              <option value="0">1-29 days</option>
+              <option value="1">30-59 days</option>
+              <option value="2">60-89 days</option>
+              <option value="3">90-119 days</option>
+              <option value="4">120-149</option>
+              <option value="5">Overdue for more than 150 days</option>
+            </select>
+            <p> -->
+          &nbsp;
           <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-            <i class="fa fa-paper-plane"></i> PREDICT MY FINANCIAL FITNESS
+            <i class="fa fa-paper-plane"></i> PREDICT MY FINANCIAL FITNESS!
           </button>
         </p>
       </form>

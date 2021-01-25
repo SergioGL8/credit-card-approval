@@ -32,17 +32,105 @@
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
     <h1 class="w3-jumbo">About</h1>
   </header>
-  <p class="text-justify">This web application was created to help both people, companies and banks alike.</p>
-  <p class="text-justify">By creating, training and deploying a Machine Learning model, this web app is able to predict how much risk an individual represents when applying for a credit based on different parameters such as:
+  <p class="text-justify">The main objective of this app is to help new prospective users to know the possibilities/probabilities to obtain a credit card or credit based on different parameters like income, education, family status, housing type, etc. We hope to achieve this by using different predictive models to help the 
+    credit institutions to save valuable time in the decision making when granting a credit.</p>
+  <p class="text-justify">The process that we as a team followed to get the app running were the following:
   <ul>
-    <li>Gender.</li>
-    <li>Annual Income.</li>
-    <li>Number of days someone has been employed.</li>
+    <li>Getting the data</li>
+    <li>Data Cleaning and Exploratory analysis</li>
+    <li>Creation and testing of a Machine Learning model.</li>
+    <li>Writing up a Flask app for deployment of web application.</li>
+    <li>Deployment of the app.</li>
   </ul>
-  Depending on the submitted information, the model will yield a determined outcome.
+  Here you'll find detail about what was done in each of the steps.
   </p>
-  <p class="text-justify">After the evaluation of these parameters, the user will know if they represent a Low Risk, Medium Risk or a High Risk when submitting an application.</p>
-  <p class="text-justify">To know your risk level, please head on over to the Quiz page to begin.</p>
+  <br>
+  <br>
+  <h2><u>Getting the data:</u></h2>
+  <p class="text-justify">The data used for this application can be found <a href="https://www.kaggle.com/rikdifos/credit-card-approval-prediction"><strong><u>here!</u></strong></a></p>
+  <p class="text-justify">Two CSV's were obtained for the previous link. They represent applictions of clients as well as their specific credit records.</p>
+  <p class="text-justify">They look as follows:</p>
+  <p class="text-justify">Applications:</p>
+  <img src="{{url_for('static', filename='application_df.png')}}" alt="applictions">
+  <p class="text-justify">Credit records:</p>
+  <img src="{{url_for('static', filename='credit_df.png')}}" alt="credit">
+  <br>
+  <br>
+  <h2><u>Data Cleaning and Exploratory Analysis:</u></h2>
+  <p class="text-justify">To clean the data we:
+    <ol>
+      <li>Dropped duplicates to keep the first instance where an ID, representing a client, appears. That way we can see the longest they've taken to make a payment.</li>
+      <li>Merged the datasets on ID.</li>
+      <li>Dropped outliers found using Boxplots. With this we help by unskewing the data.</li>
+      <li>Used a Label Enconder to make sure we are able to use all features on the model.</li>
+      <li>Clustered data using KMeans into three clusters. These three clusters would separate the clients in groups of equal variance. 
+        Each cluster represented low-risk clients, mediums-risk clients and high-risk clients. <strong>This will become our target when creating the model.</strong></li>
+      <ul>
+        <li>The clusters came out as follows:</li>
+        <img src="{{url_for('static', filename='clusters.png')}}" alt="clusters">
+        <p class="text-justify">We are assuming that cluster "2" will become irrlevant as there's not enough data points no make correct predictions for that specific cluster.</p>
+      </ul>
+      <li>With the clustering over with, we can now split the data into training and testing sets to then scale it and finally train and test the model.</li>
+    </ol>
+  </p>
+  <br>
+  <br>
+  <h2><u>Creation and testing of a Machine Learning model:</u></h2>
+  <p class="text-justify">A Neural Network was created with the following structure:</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Layer (type)</th>
+        <th scope="col">Output Shape</th>
+        <th scope="col">Param #</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1 (Dense)</td>
+        <td>(None, 2)</td>
+        <td>34</td>
+      </tr>
+      <tr>
+        <td>2 (Dense)</td>
+        <td>(None, 3)</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td>
+          Total params: 43
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Trainable params: 43
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Non-trainable params: 0
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="text-justify">After compiling the model and fitting it to the data, it had an Accuracy of 0.9302 and a Loss of 0.2556</p>
+  <p class="text-justify">This means that the resulting model makes a correct prediction 9 out of 10 times.</p>
+  <br>
+  <br>
+  <h2><u>Writing up a Flask app for deployment of web application:</u></h2>
+  <p class="text-justify">The model and data scaler from before were saved and then loaded into a Flask application.</p>
+  <p class="text-justify">Different routes render different HTML's. However, the prediction route will take the responses from the user 
+    and use them as the features for the model.</p>
+  <p class="text-justify">Depending on the responses, the model will predict how risky a user is.</p>
+  <br>
+  <br>
+  <h2><u>Deployment of the app:</u></h2>
+  <p class="text-justify">Finally, the deployment of the web app was done through Heroku.</p>
+  <p class="text-justify">Though most of the work done to develop this app was described here, it is publically available for anyone to see.
+    If you wish to see the whole process, please visit the <a href="https://github.com/SergioGL8/credit-card-approval"><strong><u>Github repository</u></strong></a>.
+  </p>
+
+
 
 <!-- END PAGE CONTENT -->
 </div>
