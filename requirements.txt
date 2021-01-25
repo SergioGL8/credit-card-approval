@@ -5,4 +5,4 @@ flask
 keras
 joblib
 gunicorn
-tensorflow
+tensorflow-cpu
