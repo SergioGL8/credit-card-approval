@@ -3,5 +3,5 @@ numpy
 pandas
 flask
 keras
-tensorflow.keras.models
+tensorflow
 joblib
